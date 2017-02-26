@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70B5DC22-AA14-44BC-9839-4BD3AC8FC758}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{AFB12BD3-67DF-4EE8-A50F-8848CEC544B4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StocktwitsAPI</RootNamespace>
-    <AssemblyName>StocktwitsAPI</AssemblyName>
+    <RootNamespace>StocktwitsConsole</RootNamespace>
+    <AssemblyName>StocktwitsConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,27 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\StocktwitsChart.cs" />
-    <Compile Include="Types\StocktwitsConversation.cs" />
-    <Compile Include="Types\StocktwitsCursor.cs" />
-    <Compile Include="Types\StocktwitsEntities.cs" />
-    <Compile Include="Types\StocktwitsLike.cs" />
-    <Compile Include="Types\StocktwitsLink.cs" />
-    <Compile Include="Types\StocktwitsLinkSource.cs" />
-    <Compile Include="Types\StocktwitsMessage.cs" />
-    <Compile Include="Types\StocktwitsReshareMessage.cs" />
-    <Compile Include="Types\StocktwitsReshares.cs" />
-    <Compile Include="Types\StocktwitsResponse.cs" />
-    <Compile Include="Types\StocktwitsResponseCode.cs" />
-    <Compile Include="Types\StocktwitsSentiment.cs" />
-    <Compile Include="Types\StocktwitsSource.cs" />
-    <Compile Include="Types\StocktwitsSymbol.cs" />
-    <Compile Include="Types\StocktwitsUser.cs" />
-    <Compile Include="StocktwitsStream.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StocktwitsAPI\StocktwitsAPI.csproj">
+      <Project>{70b5dc22-aa14-44bc-9839-4bd3ac8fc758}</Project>
+      <Name>StocktwitsAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

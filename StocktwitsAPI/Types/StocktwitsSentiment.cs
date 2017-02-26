@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StocktwitsAPI
-{
-    public class Class1
-    {
+namespace StocktwitsAPI {
+    [Serializable]
+    public class StocktwitsSentiment {
+        public string basic { get; set; }
     }
 }
