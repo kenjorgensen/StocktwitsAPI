@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StocktwitsAPI {
+namespace StocktwitsAPI.Types {
     public class StocktwitsResponse {
         public StocktwitsResponseCode response { get; set; }
         public StocktwitsSymbol symbol { get; set; }

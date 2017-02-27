@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StocktwitsAPI {
+namespace StocktwitsAPI.Types {
     [Serializable]
     public class StocktwitsUser {
         public int id { get; set; }

@@ -1,17 +1,24 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using StocktwitsAPI.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using unirest_net.http;
+
 
 namespace StocktwitsAPI {
     public class StocktwitsStream {
         private static String DEFAULT_STOCKTWITS_API = "https://api.stocktwits.com/api/2/streams/symbol/{0}.json";
 
-        public StocktwitsResponse MakeRequest( string symbol ) {
+        public List<StocktwitsStream> Data { get; private set; }
+
+        public List<StocktwitsMessage> Update( string symbol ) {
             string urlRequest = string.Format(DEFAULT_STOCKTWITS_API, symbol);
             HttpWebRequest request = WebRequest.Create(urlRequest) as HttpWebRequest;
             using ( HttpWebResponse response = request.GetResponse() as HttpWebResponse ) {
@@ -24,7 +31,7 @@ namespace StocktwitsAPI {
                 using ( StreamReader sr = new StreamReader(response.GetResponseStream(), encode) ) {
                     string json = sr.ReadToEnd();
                     StocktwitsResponse jsonResponse = JsonConvert.DeserializeObject<StocktwitsResponse>(json);
-                    return jsonResponse;
+                    return jsonResponse.messages;
                 }
             }
         }

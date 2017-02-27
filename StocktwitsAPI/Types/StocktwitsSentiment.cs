@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StocktwitsAPI {
-    [Serializable]
+namespace StocktwitsAPI.Types {
     public class StocktwitsSentiment {
-        public string basic { get; set; }
+        public StocktwitsSentimentType basic { get; set; }
+    }
+
+    public enum StocktwitsSentimentType {
+        Bullish,
+        Bearish
     }
 }
